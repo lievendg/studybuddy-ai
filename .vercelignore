@@ -1,0 +1,36 @@
+# Dependencies
+node_modules
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build files
+build
+.cache
+
+# Testing
+coverage
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Development
+server
+tasks.md
+claude.md
+*.md
+!README.md
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
