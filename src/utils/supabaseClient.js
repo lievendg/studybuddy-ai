@@ -92,7 +92,7 @@ export const uploadPDF = async (file, userId) => {
   const fileName = `${userId}/${Date.now()}-${file.name}`;
 
   const { data, error } = await supabase.storage
-    .from('study-materials')
+    .from('study materials')
     .upload(fileName, file, {
       cacheControl: '3600',
       upsert: false
@@ -107,7 +107,7 @@ export const uploadPDF = async (file, userId) => {
  */
 export const getPDFUrl = (filePath) => {
   const { data } = supabase.storage
-    .from('study-materials')
+    .from('study materials')
     .getPublicUrl(filePath);
 
   return data.publicUrl;
@@ -161,7 +161,7 @@ export const getMaterial = async (materialId) => {
 export const deleteMaterial = async (materialId, filePath) => {
   // Delete from storage first
   const { error: storageError } = await supabase.storage
-    .from('study-materials')
+    .from('study materials')
     .remove([filePath]);
 
   if (storageError) throw storageError;
@@ -462,7 +462,7 @@ export const isSupabaseConfigured = () => {
  */
 export const testConnection = async () => {
   try {
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('study_materials')
       .select('count')
       .limit(1);
